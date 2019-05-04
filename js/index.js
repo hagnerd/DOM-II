@@ -96,11 +96,22 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Event 8. beforeprint
-window.addEventListener('beforeprint', () => {
-  let res =  prompt("Enter reason for printing", "");
-
-  console.log(res);
+// Event 8. focus & blur
+const firstName = document.querySelector('input[name="first-name"]');
+const errorInfo = document.querySelector('.error-info');
+const submitButton = document.querySelector('.contact-form button[type="submit"]');
+firstName.addEventListener('focus', (e) => {
+  e.target.style.backgroundColor = 'lightblue' 
+})
+firstName.addEventListener('blur', (e) => {
+  if (e.target.value.length < 5) {
+    e.target.style.backgroundColor = 'lightpink';
+    errorInfo.textContent = 'First name must be longer than 5 characters';
+    submitButton.disabled = true;
+  } else {
+    errorInfo.textContent = '';
+    submitButton.disabled = false;
+  }
 })
 
 // Event 9. Resize
@@ -113,6 +124,4 @@ window.addEventListener('resize', () => {
 })
 
 // Event 10. copy
-islandGetawaP.addEventListener('copy', (e) => {
 
-})
