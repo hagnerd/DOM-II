@@ -12,6 +12,8 @@ const preventDefault = (element, eventName) => {
 const navItems = document.querySelectorAll('nav a');
 const welcomeHeader = document.querySelector('.intro h2');
 const funBusImg = document.querySelector('img[src="img/fun-bus.jpg"]');
+const letsGoHeader = document.querySelector('.text-content h2');
+console.log(letsGoHeader)
 
 /* Events / Event handlers */
 // Nav item prevent default
@@ -35,3 +37,8 @@ welcomeHeader.addEventListener('mouseleave', (e) => {
 funBusImg.addEventListener('mousemove', (e) => {
   console.log(`The mouse is at X: ${e.clientX}, Y: ${e.clientY}`);
 });
+
+// Event 5. dblclick
+letsGoHeader.addEventListener('dblclick', (e) => {
+  e.target.classList.toggle('dblclick-event')
+})
