@@ -13,7 +13,7 @@ const navItems = document.querySelectorAll('nav a');
 const welcomeHeader = document.querySelector('.intro h2');
 const funBusImg = document.querySelector('img[src="img/fun-bus.jpg"]');
 const letsGoHeader = document.querySelector('.text-content h2');
-console.log(letsGoHeader)
+const introP = document.querySelector('.intro p');
 
 /* Events / Event handlers */
 // Nav item prevent default
@@ -41,4 +41,19 @@ funBusImg.addEventListener('mousemove', (e) => {
 // Event 5. dblclick
 letsGoHeader.addEventListener('dblclick', (e) => {
   e.target.classList.toggle('dblclick-event')
+})
+
+// Event 6. wheel 
+let scale = 1;
+introP.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  
+  if (e.deltaY < 0) {
+    scale *= e.deltaY * -1.1
+  } else {
+    scale /= e.deltaY * 1.1
+  }
+
+  scale = Math.min(Math.max(.25, scale), 1.5);
+  e.target.style.transform = `scale(${scale})`
 })
