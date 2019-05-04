@@ -58,3 +58,23 @@ introP.addEventListener('wheel', (e) => {
   e.target.style.transform = `scale(${scale})`
 })
 
+// Event 7. keydown
+let allBodyText = document.querySelectorAll('.home h2, .home p, .home h4'); 
+window.addEventListener('keydown', (e) => {
+  let isBgDark = window.document.body.style.backgroundColor === 'black';
+
+  if (e.key.toLowerCase() === 'd') {
+    if (isBgDark) {
+      window.document.body.style.backgroundColor = "";
+
+      allBodyText.forEach(b => {
+        b.style.color = 'black';
+      })
+    } else {
+      window.document.body.style.backgroundColor = "black";
+      allBodyText.forEach(b => {
+        b.style.color = 'white';
+      })
+    }
+  }
+});
