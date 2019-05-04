@@ -57,3 +57,4 @@ introP.addEventListener('wheel', (e) => {
   scale = Math.min(Math.max(.25, scale), 1.5);
   e.target.style.transform = `scale(${scale})`
 })
+
