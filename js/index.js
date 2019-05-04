@@ -135,3 +135,16 @@ contactForm.addEventListener('submit', (e) => {
   e.target['first-name'].value = "";
   e.target['message'].value = "";
 })
+
+/* Nested events */
+const mainNav = document.querySelector('.main-navigation');
+const headingLogo = document.querySelector('.logo-heading');
+
+mainNav.addEventListener('click', (e) => {
+  e.target.style.backgroundColor = 'lightblue';
+});
+
+headingLogo.addEventListener('click', (e) => {
+  e.stopPropagation();
+  e.target.style.color = 'lightgreen';
+})
