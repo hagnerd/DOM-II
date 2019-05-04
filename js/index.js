@@ -8,6 +8,13 @@ const preventDefault = (element, eventName) => {
   });
 }
 
+const createSpread = (n, spread) => ({
+  floor: n - spread,
+  ceil: n + spread,
+});
+
+const isInRange = (floor, ceil, n) => n >= floor && n <= ceil;
+
 /* Selectors */
 const navItems = document.querySelectorAll('nav a');
 const welcomeHeader = document.querySelector('.intro h2');
@@ -21,7 +28,11 @@ navItems.forEach(item => preventDefault(item, 'click'));
 
 // Event 1. load
 window.addEventListener('load', () => {
-  alert("The page has loaded")
+  window.document.body.style.backgroundColor = 'lightgreen';
+
+  setTimeout(() => {
+    window.document.body.style.backgroundColor = 'white';  
+  }, 1000)
 });
 
 // Event 2. mouseenter
@@ -33,9 +44,12 @@ welcomeHeader.addEventListener('mouseleave', (e) => {
   e.target.style.color = 'black';
 })
 
+let { floor, ceil } = createSpread(window.innerWidth / 2, 50);
 // Event 4. mousemove
 funBusImg.addEventListener('mousemove', (e) => {
-  console.log(`The mouse is at X: ${e.clientX}, Y: ${e.clientY}`);
+  if (isInRange(floor, ceil, e.clientX)) {
+    e.target.style.display = "none";
+  }
 });
 
 // Event 5. dblclick
@@ -80,8 +94,13 @@ window.addEventListener('keydown', (e) => {
 });
 
 // Event 8. beforeprint
-window.addEventListener('beforeprint', (e) => {
+window.addEventListener('beforeprint', () => {
   let res =  prompt("Enter reason for printing", "");
 
   console.log(res);
+})
+
+// Event 9. Resize
+window.addEventListener('resize', (e) => {
+
 })
