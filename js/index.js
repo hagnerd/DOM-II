@@ -78,3 +78,10 @@ window.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// Event 8. beforeprint
+window.addEventListener('beforeprint', (e) => {
+  let res =  prompt("Enter reason for printing", "");
+
+  console.log(res);
+})
