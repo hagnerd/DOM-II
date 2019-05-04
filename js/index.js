@@ -21,6 +21,9 @@ const welcomeHeader = document.querySelector('.intro h2');
 const funBusImg = document.querySelector('img[src="img/fun-bus.jpg"]');
 const letsGoHeader = document.querySelector('.text-content h2');
 const introP = document.querySelector('.intro p');
+const allDestinationPs = document.querySelectorAll('.destination p');
+
+const islandGetawaP = allDestinationPs[allDestinationPs.length - 1];
 
 /* Events / Event handlers */
 // Nav item prevent default
@@ -101,6 +104,15 @@ window.addEventListener('beforeprint', () => {
 })
 
 // Event 9. Resize
-window.addEventListener('resize', (e) => {
+window.addEventListener('resize', () => {
+  if (window.innerWidth <=  600) {
+    window.document.body.style.fontFamily = "Georgia";
+  } else {
+    window.document.body.style.fontFamily = "Roboto";
+  }  
+})
+
+// Event 10. copy
+islandGetawaP.addEventListener('copy', (e) => {
 
 })
