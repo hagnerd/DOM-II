@@ -123,5 +123,15 @@ window.addEventListener('resize', () => {
   }  
 })
 
-// Event 10. copy
+// Event 10. submit
+const contactForm = document.querySelector('.contact-form');
+const submittedArea = document.querySelector('.submitted-area');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let firstName = e.target['first-name'].value; 
+  let message = e.target['message'].value;
 
+  submittedArea.textContent = `${firstName} says: "${message}"`;
+  e.target['first-name'].value = "";
+  e.target['message'].value = "";
+})
