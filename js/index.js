@@ -11,6 +11,7 @@ const preventDefault = (element, eventName) => {
 /* Selectors */
 const navItems = document.querySelectorAll('nav a');
 const welcomeHeader = document.querySelector('.intro h2');
+const funBusImg = document.querySelector('img[src="img/fun-bus.jpg"]');
 
 /* Events / Event handlers */
 // Nav item prevent default
@@ -31,7 +32,6 @@ welcomeHeader.addEventListener('mouseleave', (e) => {
 })
 
 // Event 4. mousemove
-window.addEventListener('mousemove', (e) => {
-
+funBusImg.addEventListener('mousemove', (e) => {
   console.log(`The mouse is at X: ${e.clientX}, Y: ${e.clientY}`);
 });
